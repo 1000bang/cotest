@@ -47,17 +47,40 @@ public class stack_level2_01 {
 
     public boolean solution(String s) {
         Stack<Character> temp = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '(') {
+        
+        for (char c : s.toCharArray()) {
+            if(c == '('){
                 temp.push(c);
-            } else {
-                if (temp.isEmpty()) {
+            }else{
+                if(temp.isEmpty()){
                     return false;
                 }
                 temp.pop();
             }
+            
         }
+
         return temp.isEmpty();
+    }
+
+    boolean solution2(String s) {
+        boolean answer = false;
+        int count = 0;
+        for(int i = 0; i<s.length();i++){
+            if(s.charAt(i) == '('){
+                count++;
+            }
+            if(s.charAt(i) == ')'){
+                count--;
+            }
+            if(count < 0){
+                break;
+            }
+        }
+        if(count == 0){
+            answer = true;
+        }
+
+        return answer;
     }
 }
