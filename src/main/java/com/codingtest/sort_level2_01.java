@@ -1,6 +1,9 @@
 package com.codingtest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * =============================================================================
@@ -49,10 +52,11 @@ public class sort_level2_01 {
         for (int i = 0; i < numbers.length; i++) {
             arr[i] = String.valueOf(numbers[i]);
         }
-
+        // 3 + 30 = 330, 30 + 3 = 303 비교
         // a, b 순서로 붙였을 때 "더 큰 문자열"이 나오는 쪽이 앞에 오도록 정렬 (내림차순)
         Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
 
+        // 전부 0이면 "0" 반환
         if ("0".equals(arr[0])) {
             return "0";
         }
@@ -64,46 +68,39 @@ public class sort_level2_01 {
         return sb.toString();
     }
 
-    /**
-     * "자릿수 비교"로 정렬.
-     * - 두 수 a, b를 이어 붙인 결과 "a+b" vs "b+a"를 **자릿수 하나씩** 비교.
-     * - 첫째 자리(앞자리)부터 비교하고, 같으면 둘째 자리 비교 ... 한쪽이 짧으면 그 수를 반복해서 채워서 비교.
-     * - 예: 3 vs 34 → "33..." vs "34..." 로 보면 둘째 자리에서 3 < 4 이므로 34가 앞에 오는 쪽이 더 큼.
-     */
+
+    // 다른 사람 풀이 
+
     public String solution2(int[] numbers) {
-        String[] arr = new String[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            arr[i] = String.valueOf(numbers[i]);
+        String answer = "";
+
+        List<Integer> list = new ArrayList<>();
+        for(int i = 0; i < numbers.length; i++) {
+            list.add(numbers[i]);
         }
-
-        Arrays.sort(arr, (a, b) -> compareConcatenationOrder(a, b)); // (a+b)가 더 크면 a가 앞에
-
-        if ("0".equals(arr[0])) {
-            return "0";
-        }
-
+        Collections.sort(list, (a, b) -> {
+            String as = String.valueOf(a), bs = String.valueOf(b);
+            return -Integer.compare(Integer.parseInt(as + bs), Integer.parseInt(bs + as));
+        });
         StringBuilder sb = new StringBuilder();
-        for (String s : arr) {
-            sb.append(s);
+        for(Integer i : list) {
+            sb.append(i);
         }
-        return sb.toString();
+        answer = sb.toString();
+        if(answer.charAt(0) == '0') {
+            return "0";
+        }else {
+            return answer;
+        }
     }
 
     /**
-     * "a를 b보다 앞에 두었을 때(a+b)가 더 크면" 음수 반환 (a가 앞에 오게).
-     * 즉 (a+b) vs (b+a) 를 자릿수별로 비교. 한쪽이 짧으면 이어 붙인 길이만큼 비교 (실제로는 a+b 길이만큼).
+     * list에서 순서대로 2개의 요소를 추출합니다. 이를 각각 a와 b로 정의하고 String 자료형으로 만들어 as와 bs를 만듭니다.
+
+그리고 return문에 보면 as + bs와 bs + as를 수행합니다. 여기서 주목해야하는 부분은 자리를 교체했다는 점입니다(= bs + as 케이스). 만약 as = 10, bs = 20인 경우, 연산의 결과는 1020과 2010으로 나옵니다.
+
+이 결과 값을 가지고 Integer.compare()를 수행합니다. Integer 라이브러리의 compare 함수를 살펴보면 x==y 인 경우 0을 반환, x < y인 경우 음수, x > y인 경우 양수를 반환합니다. 1020과 2010을 비교하면 x < y인 경우로, 음수를 반환합니다.
+이제 Integer.compare()로부터 나온 연산 결과를 Collections.sort() 내부의 comparator에서 사용하게 됩니다. comparator의 경우 음수는 오름차순, 양수는 내림차순으로 요소의 자리를 바꿔줍니다.
+그러나 위의 코드에서는 sb + ab는 인위적으로 자리 바꿈을 수행하였습니다. 그러므로 (ab + sb) < (sb + ab)인 경우 자리바꿈을 수행해야하는 상황인겁니다. 문제의 조건에 부합하려면 20이 10보다 앞에 위치해야합니다. 하지만 Integer.compare()함수에서 음수를 반환하고 이를 전달받은 Collections.sort()는 음수를 오름차순으로 정렬하므로 문제의 조건에 부합하지 않습니다. 즉, Integer.compare()는 (ab + sb) < (sb + ab)인 경우에 음수를 반환하지만 sb가 ab보다 앞에 위치하도록 만들기 위해서 Integer.compare() 앞에 마이너스(-) 부호를 붙여 양수를 반환하게 하여 Collections.sort()가 내림차순으로 정렬하도록 하는 것입니다.
      */
-    private int compareConcatenationOrder(String a, String b) {
-        int len = a.length() + b.length();
-        for (int i = 0; i < len; i++) {
-            // (a+b) 의 i번째 자리
-            char fromAThenB = i < a.length() ? a.charAt(i) : b.charAt(i - a.length());
-            // (b+a) 의 i번째 자리
-            char fromBThenA = i < b.length() ? b.charAt(i) : a.charAt(i - b.length());
-            if (fromAThenB != fromBThenA) {
-                return fromBThenA - fromAThenB; // (a+b)가 크면 음수 → a 앞
-            }
-        }
-        return 0;
-    }
 }
