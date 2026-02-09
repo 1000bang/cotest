@@ -49,16 +49,17 @@ public class sort_level1_01 {
     public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
 
-        for (int c = 0; c < commands.length; c++) {
-            int i = commands[c][0];
-            int j = commands[c][1];
-            int k = commands[c][2];
+        for (int i = 0; i < commands.length; i++) {
+            int start = commands[i][0];
+            int end = commands[i][1];
+            int k = commands[i][2];
 
-            int[] slice = Arrays.copyOfRange(array, i - 1, j);
+            int[] slice = Arrays.copyOfRange(array, start - 1, end);
             Arrays.sort(slice);
-            answer[c] = slice[k - 1];
+            answer[i] = slice[k - 1];
         }
 
         return answer;
     }
 }
+

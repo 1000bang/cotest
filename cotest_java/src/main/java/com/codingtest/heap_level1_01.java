@@ -55,9 +55,13 @@ import java.util.PriorityQueue;
 public class heap_level1_01 {
 
     /**
-     * PriorityQueue 없이 List + Collections.sort 로 구현.
+     * 내가 푼 방식 
+     * List + Collections.sort 로 구현.
      * - 매번 정렬 후 가장 작은 두 개(인덱스 0, 1)를 꺼내서 섞고, 그 두 개는 제거하고 섞은 값 하나만 추가.
      * - "두 개 제거 + 하나 추가"를 List.remove(0) 두 번 + add(섞은값)으로 처리.
+     * 
+     * 매번 정렬이라 시간 복잡도는 O(섞는 횟수 × n log n) 이고, 효율만 놓고 보면 Heap(solution2)이 더 좋다
+     *  solution2는 O(n log n) 이다.
      */
     public int solution(int[] scoville, int K) {
         List<Integer> list = new ArrayList<>();
@@ -83,6 +87,13 @@ public class heap_level1_01 {
         return answer;
     }
 
+    // 힙 사용 방식
+    /**
+     * PriorityQueue(최소 힙)에 scoville 전부 넣음. 매번 poll()로 가장 작은 것, 그다음 poll()로 두 번째로 작은 것 꺼냄.
+     * 섞은 값 = first + (second * 2)를 offer()로 다시 넣고, answer(섞은 횟수) +1.
+     * 루트(peek())가 K 이상이면 종료. 원소가 1개인데 K 미만이면 -1 반환.
+     * 배열 순서대로 섞으면 안 됨: 1회 후 [5, 3, 9, 10, 12]에서 "가장 작은 두 개"는 3과 5이지, 배열의 5와 3이 아님.
+     */
     public int solution2(int[] scoville, int K) {
         PriorityQueue<Integer> heap = new PriorityQueue<>();
         for (int s : scoville) {

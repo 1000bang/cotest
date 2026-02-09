@@ -112,4 +112,28 @@ public class heap_level2_01 {
 
         return total / n;  // 평균의 정수부분
     }
+
+
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = {commands.length};
+        for(int i = 0; i < commands.length; i ++){
+            int start = commands[i][0];
+            int end = commands[i][1];
+            int k = commands[i][2];
+            
+            int[] temp = new int[end - 1];
+            for(int x = 0, j = start - 1; j < end; j ++, x ++){
+                temp[x] = array[j];
+            }
+            Arrays.sort(temp);
+            answer[i] = (temp[k - 1]);
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        heap_level2_01 solution = new heap_level2_01();
+        solution.solution(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
+    }
 }

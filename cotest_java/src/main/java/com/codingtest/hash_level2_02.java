@@ -1,5 +1,6 @@
 package com.codingtest;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -76,5 +77,13 @@ public class hash_level2_02 {
             answer *= (count + 1);
         }
         return answer - 1;
+    }
+
+    public int solution2(String[][] clothes) {
+        return Arrays.stream(clothes)
+                .collect(groupingBy(p -> p[1], mapping(p -> p[0], counting())))
+                .values()
+                .stream()
+                .collect(reducing(1L, (x, y) -> x * (y + 1))).intValue() - 1;
     }
 }
