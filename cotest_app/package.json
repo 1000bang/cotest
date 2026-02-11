@@ -1,0 +1,30 @@
+{
+  "name": "cotest-app",
+  "version": "1.0.0",
+  "description": "오프라인 코딩 테스트 연습 애플리케이션",
+  "main": "electron.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac"
+  },
+  "keywords": ["coding", "test", "practice", "offline"],
+  "author": "1000bang",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  },
+  "build": {
+    "appId": "com.cotest.app",
+    "productName": "코딩테스트 연습",
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.education"
+    },
+    "files": [
+      "electron.js",
+      "src/**/*"
+    ]
+  }
+}

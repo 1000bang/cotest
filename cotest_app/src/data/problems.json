@@ -1,0 +1,114 @@
+[
+  {
+    "id": "BruteForce_level1_01",
+    "category": "BruteForce",
+    "level": 1,
+    "title": "최소 지갑 크기 (명함 지갑)",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/BruteForce_level1_01.java"
+  },
+  {
+    "id": "BruteForce_level1_02",
+    "category": "BruteForce",
+    "level": 1,
+    "title": "모의고사 (수포자)",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/BruteForce_level1_02.java"
+  },
+  {
+    "id": "BruteForce_level2_01",
+    "category": "BruteForce",
+    "level": 2,
+    "title": "소수 찾기",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/BruteForce_level2_01.java"
+  },
+  {
+    "id": "greedy_level1_01",
+    "category": "Greedy",
+    "level": 1,
+    "title": "체육복",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/greedy_level1_01.java"
+  },
+  {
+    "id": "greedy_level2_01",
+    "category": "Greedy",
+    "level": 2,
+    "title": "조이스틱",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/greedy_level2_01.java"
+  },
+  {
+    "id": "hash_level1_01",
+    "category": "Hash",
+    "level": 1,
+    "title": "완주하지 못한 선수",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/hash_level1_01.java"
+  },
+  {
+    "id": "hash_level1_02",
+    "category": "Hash",
+    "level": 1,
+    "title": "폰켓몬",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/hash_level1_02.java"
+  },
+  {
+    "id": "hash_level2_01",
+    "category": "Hash",
+    "level": 2,
+    "title": "전화번호부 접두어",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/hash_level2_01.java"
+  },
+  {
+    "id": "hash_level2_02",
+    "category": "Hash",
+    "level": 2,
+    "title": "의상",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/hash_level2_02.java"
+  },
+  {
+    "id": "heap_level1_01",
+    "category": "Heap",
+    "level": 1,
+    "title": "더 맵게",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/heap_level1_01.java"
+  },
+  {
+    "id": "heap_level2_01",
+    "category": "Heap",
+    "level": 2,
+    "title": "디스크 컨트롤러",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/heap_level2_01.java"
+  },
+  {
+    "id": "queue_level1_01",
+    "category": "Queue",
+    "level": 1,
+    "title": "기능개발",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/queue_level1_01.java"
+  },
+  {
+    "id": "sort_level1_01",
+    "category": "Sort",
+    "level": 1,
+    "title": "K번째수",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/sort_level1_01.java"
+  },
+  {
+    "id": "sort_level2_01",
+    "category": "Sort",
+    "level": 2,
+    "title": "가장 큰 수",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/sort_level2_01.java"
+  },
+  {
+    "id": "stack_level1_01",
+    "category": "Stack",
+    "level": 1,
+    "title": "같은 숫자는 싫어",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/stack_level1_01.java"
+  },
+  {
+    "id": "stack_level2_01",
+    "category": "Stack",
+    "level": 2,
+    "title": "올바른 괄호",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/stack_level2_01.java"
+  }
+]
