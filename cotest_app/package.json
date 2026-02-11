@@ -4,9 +4,10 @@
   "description": "오프라인 코딩 테스트 연습 애플리케이션",
   "main": "electron.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder",
-    "build:mac": "electron-builder --mac"
+    "start": "npx electron .",
+    "build": "npx electron-builder",
+    "build:mac": "npx electron-builder --mac",
+    "build:win": "npx electron-builder --win"
   },
   "keywords": ["coding", "test", "practice", "offline"],
   "author": "1000bang",
@@ -21,6 +22,10 @@
     "mac": {
       "target": "dmg",
       "category": "public.app-category.education"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": null
     },
     "files": [
       "electron.js",
