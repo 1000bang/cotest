@@ -5,16 +5,19 @@ const fs = require('fs').promises;
 
 let mainWindow;
 
-// macOS에서 Electron 앱은 터미널과 다른 PATH를 가지므로 명시적으로 설정
-const userPath = [
-  '/opt/homebrew/bin',
-  '/usr/local/bin',
-  '/usr/bin',
-  '/bin',
-  '/usr/sbin',
-  '/sbin',
-  process.env.PATH
-].join(':');
+// OS별 PATH 설정 (Electron 앱은 터미널과 다른 PATH를 가질 수 있음)
+const isWindows = process.platform === 'win32';
+const userPath = isWindows
+  ? process.env.PATH
+  : [
+      '/opt/homebrew/bin',
+      '/usr/local/bin',
+      '/usr/bin',
+      '/bin',
+      '/usr/sbin',
+      '/sbin',
+      process.env.PATH
+    ].join(':');
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -24,7 +27,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false
     },
-    titleBarStyle: 'hiddenInset'
+    titleBarStyle: isWindows ? 'default' : 'hiddenInset'
   });
 
   mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
