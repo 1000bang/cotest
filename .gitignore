@@ -20,6 +20,12 @@ release.properties
 *.tar.gz
 *.rar
 
+# Node
+node_modules/
+dist/
+
 # OS
 .DS_Store
 Thumbs.db
+
+.claude
