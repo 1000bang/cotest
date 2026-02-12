@@ -3,6 +3,8 @@ package com.codingtest;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import static java.util.stream.Collectors.*;
+
 /**
  * =============================================================================
  * 1. 문제 (의상)

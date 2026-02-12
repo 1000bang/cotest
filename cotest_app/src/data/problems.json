@@ -49,6 +49,20 @@
     "filePath": "../cotest_java/src/main/java/com/codingtest/greedy_level2_03.java"
   },
   {
+    "id": "dp_level1_01",
+    "category": "DP",
+    "level": 1,
+    "title": "N으로 표현",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/dp_level1_01.java"
+  },
+  {
+    "id": "dp_level1_02",
+    "category": "DP",
+    "level": 1,
+    "title": "정수 삼각형",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/dp_level1_02.java"
+  },
+  {
     "id": "hash_level1_01",
     "category": "Hash",
     "level": 1,

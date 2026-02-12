@@ -47,7 +47,27 @@ import java.util.Arrays;
 public class greedy_level2_03 {
 
     public int solution(int[] people, int limit) {
-        // TODO: 풀이를 작성하세요
-        return 0;
+        // 사람들의 몸무게를 오름차순으로 정렬
+        //ex) 50 50 70 80
+        Arrays.sort(people);
+        int left = 0; // 가장 가벼운 사람의 인덱스
+        int right = people.length - 1; // 가장 무거운 사람의 인덱스
+        int boatCount = 0;
+        //네번째 루프에서 left:1 > right:0 이므로 종료
+        while (left <= right) {
+            // 두 사람의 몸무게 합이 limit 이하인 경우
+            // 첫번째 루프) 50 + 80 <= 100 -> X 
+            // 두번째 루프) 50 + 70 <= 100 -> X
+            // 세번째 루프) 50 + 50 <= 100 -> O
+            if (people[left] + people [right] <= limit) {
+                left++;
+            }
+            right--;
+            //첫번째 루프) 80 태움
+            //두번째 루프) 70 태움 
+            //세번째 루프) 50 + 50 태움
+            boatCount++;
+        }
+        return boatCount;
     }
 }

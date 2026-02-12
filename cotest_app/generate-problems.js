@@ -66,6 +66,7 @@ function parseJavaFile(filename, content) {
   else if (id.startsWith('queue')) category = 'Queue';
   else if (id.startsWith('sort')) category = 'Sort';
   else if (id.startsWith('greedy')) category = 'Greedy';
+  else if (id.startsWith('dp')) category = 'DP';
 
   // 레벨 추출
   const levelMatch = id.match(/level(\d+)/);
