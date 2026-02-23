@@ -70,6 +70,20 @@
     "filePath": "../cotest_java/src/main/java/com/codingtest/dp_level2_01.java"
   },
   {
+    "id": "dp_level2_02",
+    "category": "DP",
+    "level": 2,
+    "title": "사칙연산",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/dp_level2_02.java"
+  },
+  {
+    "id": "dfs_level2_01",
+    "category": "DFS",
+    "level": 2,
+    "title": "타겟 넘버",
+    "filePath": "../cotest_java/src/main/java/com/codingtest/dfs_level2_01.java"
+  },
+  {
     "id": "hash_level1_01",
     "category": "Hash",
     "level": 1,
